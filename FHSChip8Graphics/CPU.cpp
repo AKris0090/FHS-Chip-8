@@ -102,3 +102,7 @@ void CPU::updateSoundTimer() {
         soundTimer--;
     }
 }
+
+bool* CPU::getDisplayArray() {
+    return display;
+}

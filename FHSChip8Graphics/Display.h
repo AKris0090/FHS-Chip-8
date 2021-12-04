@@ -1,4 +1,6 @@
 class Display {
 
-public: void initDisplay();
+public: 
+	void initDisplay();
+	void updateDisplay();
 };

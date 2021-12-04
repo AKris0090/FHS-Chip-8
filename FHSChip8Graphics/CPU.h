@@ -10,7 +10,7 @@ class CPU {
      * The display is 64 pixels wide and 32 pixels tall. Each pixel can be on or off.
      * In other words, each pixel is a boolean value, or a bit.
      * */
-    unsigned char display[64 * 32];
+    bool display[64 * 32];
 
     // A program counter which points at the current instruction in memory
     unsigned short programCounter;
@@ -76,6 +76,7 @@ class CPU {
 public:
     void initialize();
     void emulateCycle();
+    bool* getDisplayArray();
 };
 
 #endif
