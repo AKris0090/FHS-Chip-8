@@ -10,6 +10,7 @@ int main(int argc, char **arcgv) {
      *  // Set up render system and register input callbacks
      *  setupGraphics();
      *  setupInput();
+     * yo
      *
      *   // Initialize the Chip8 system and load the game into the memory
      *   core.initialize();
