@@ -31,7 +31,7 @@ int main(int argc, char **arcgv) {
     CPU core;
 
     Display window;
-    window.initDisplay();
+    window.initDisplay(core.getDisplayArray());
 
     return 0;
 }

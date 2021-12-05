@@ -13,7 +13,7 @@ SDL_Renderer* renderer;
 
 
 
-void Display::initDisplay() {
+void Display::initDisplay(bool* displayBools) {
 
 	// Startup the video feed
     SDL_Init(SDL_INIT_VIDEO);
@@ -25,7 +25,7 @@ void Display::initDisplay() {
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     // Update the display and presaent it
-    updateDisplay();
+    updateDisplay(displayBools);
     SDL_RenderPresent(renderer);
 
     // Keep the window open until forcefully closed
@@ -46,7 +46,7 @@ void Display::initDisplay() {
     }
 }
 
-void Display::updateDisplay() {
+void Display::updateDisplay(bool* displayBools) {
 
     // Get surface off of the window
     SDL_Surface* surface = SDL_GetWindowSurface(window);
@@ -54,24 +54,32 @@ void Display::updateDisplay() {
     // Get pixels from the surface of the window
     Uint64* pixels = (Uint64*)surface->pixels;
 
-    // Iterrate through the pixels change every other pixel to white
-    int startX = 0;
-    int startY = 0;
+    // Iterrate through the given boolean array and set assigned blocks to white
 
-    int startPos = 0;
-    for (int y = 0; y < 32; y++) {
-        for (int x = startPos; x < 64; x += 2) {
-            SDL_Rect rect;
-            rect.x = x * SCALE_FACTOR;
-            rect.y = y * SCALE_FACTOR;
-            rect.w = SCALE_FACTOR;
-            rect.h = SCALE_FACTOR;
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-            SDL_RenderFillRect(renderer, &rect);
+    // Example - Delete
+    *(displayBools + 1) = true;
+    *(displayBools + 63) = true;
+    *(displayBools + 220) = true;
+
+
+    int counter = 0;
+    for (int i = 0; i < 32; i++)
+    {
+        for (int j = 0; j < 64; j++)
+        {
+            if (displayBools[counter] == true) {
+                SDL_Rect rect;
+                rect.x = j * SCALE_FACTOR;
+                rect.y = i * SCALE_FACTOR;
+                rect.w = SCALE_FACTOR;
+                rect.h = SCALE_FACTOR;
+                SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+                SDL_RenderFillRect(renderer, &rect);
+            }
+            counter++;
         }
-        startPos = 1 - startPos;
     }
 
-    // Update the window with the new graphic
+    // Update the window with the renderer
     SDL_UpdateWindowSurface(window);
 }
