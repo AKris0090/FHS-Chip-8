@@ -1,5 +1,6 @@
 #include "CPU.h"
 #include <iostream>
+#include <stdio.h>
 
 void CPU::initialize() {
     // Clear memory
@@ -8,9 +9,7 @@ void CPU::initialize() {
     }
 
     // Reset display
-    for (int i = 0; i < (64 * 32); i++) {
-        display[i] = 0;
-    }
+    clearDisplay();
 
     // Reset program counter (starts at 0x200)
     programCounter = 0x200;
@@ -105,4 +104,22 @@ void CPU::updateSoundTimer() {
 
 bool* CPU::getDisplayArray() {
     return display;
+}
+
+// FINISH IMPLEMENTING
+void CPU::loadGame(const char* gameName) {
+    FILE* gameFile;
+    gameFile = fopen(gameName, "rb");
+    if (gameFile != NULL) {
+        for (int i = 0; i < 0; i++)
+        {
+
+        }
+    }
+}
+
+void CPU::clearDisplay() {
+    for (int i = 0; i < (64 * 32); i++) {
+        display[i] = false;
+    }
 }

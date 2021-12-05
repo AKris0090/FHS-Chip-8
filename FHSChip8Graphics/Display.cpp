@@ -13,7 +13,7 @@ SDL_Renderer* renderer;
 
 
 
-void Display::initDisplay(bool* displayBools) {
+void Display::initDisplay() {
 
 	// Startup the video feed
     SDL_Init(SDL_INIT_VIDEO);
@@ -23,10 +23,6 @@ void Display::initDisplay(bool* displayBools) {
 
     // Create the renderer for the window
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-
-    // Update the display and presaent it
-    updateDisplay(displayBools);
-    SDL_RenderPresent(renderer);
 
     // Keep the window open until forcefully closed
     bool running = true;
@@ -82,4 +78,7 @@ void Display::updateDisplay(bool* displayBools) {
 
     // Update the window with the renderer
     SDL_UpdateWindowSurface(window);
+
+    // Present the display
+    SDL_RenderPresent(renderer);
 }

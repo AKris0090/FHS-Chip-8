@@ -1,2 +1,14 @@
-﻿  Display.cpp
-  FHSChip8Graphics.vcxproj -> C:\Users\arjoo\source\repos\FHSChip8Graphics\x64\Debug\FHSChip8Graphics.exe
+﻿  CPU.cpp
+C:\Users\arjoo\source\repos\FHSChip8Graphics\FHSChip8Graphics\CPU.cpp(85,5): warning C4065: switch statement contains 'default' but no 'case' labels
+C:\Users\arjoo\source\repos\FHSChip8Graphics\FHSChip8Graphics\CPU.cpp(112,16): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Display.cpp
+  main.cpp
+C:\Users\arjoo\source\repos\FHSChip8Graphics\FHSChip8Graphics\main.cpp(37,5): error C3861: 'setupGraphics': identifier not found
+C:\Users\arjoo\source\repos\FHSChip8Graphics\FHSChip8Graphics\main.cpp(38,5): error C3861: 'setupInput': identifier not found
+C:\Users\arjoo\source\repos\FHSChip8Graphics\FHSChip8Graphics\main.cpp(41,10): error C2039: 'loadGame': is not a member of 'CPU'
+C:\Users\arjoo\source\repos\FHSChip8Graphics\FHSChip8Graphics\CPU.h(4): message : see declaration of 'CPU'
+C:\Users\arjoo\source\repos\FHSChip8Graphics\FHSChip8Graphics\main.cpp(45,18): error C2039: 'drawFlag': is not a member of 'CPU'
+C:\Users\arjoo\source\repos\FHSChip8Graphics\FHSChip8Graphics\CPU.h(4): message : see declaration of 'CPU'
+C:\Users\arjoo\source\repos\FHSChip8Graphics\FHSChip8Graphics\main.cpp(49,14): error C2039: 'setKeys': is not a member of 'CPU'
+C:\Users\arjoo\source\repos\FHSChip8Graphics\FHSChip8Graphics\CPU.h(4): message : see declaration of 'CPU'
+  Generating Code...

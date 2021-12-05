@@ -1,6 +1,6 @@
 class Display {
 
 public: 
-	void initDisplay(bool* displayBools);
+	void initDisplay();
 	void updateDisplay(bool* displayBools);
 };

@@ -1,6 +1,10 @@
 #include "CPU.h"
 #include "Display.h"
 
+
+Display WINDOW;
+CPU CORE;
+
 using namespace std;
 
 int main(int argc, char **arcgv) {
@@ -22,16 +26,39 @@ int main(int argc, char **arcgv) {
      *   // If the draw flag is set, update the screen
      *   if(myChip8.drawFlag)
      *       drawGraphics();
+     *       (THIS IS window.updateDisplay();)
      *   }
      *   // Store key press state (Press and Release)
      *   core.setKeys();
      *   }
      */
 
-    CPU core;
 
-    Display window;
-    window.initDisplay(core.getDisplayArray());
+    setupGraphics();
+    setupInput();
+
+    CORE.initialize();
+
+    //FINISH IMPLEMENTING
+    CORE.loadGame("pong");
+
+    for (;;) {
+        CORE.emulateCycle();
+        if (CORE.drawFlag == true) {
+            WINDOW.updateDisplay(CORE.getDisplayArray());
+        }
+
+        CORE.setKeys();
+    }
+
 
     return 0;
+}
+
+void setupGraphics() {
+    WINDOW.initDisplay();
+}
+
+void setupInput() {
+
 }

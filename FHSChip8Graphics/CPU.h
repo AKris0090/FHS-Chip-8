@@ -76,7 +76,11 @@ class CPU {
 public:
     void initialize();
     void emulateCycle();
+
+    void loadGame(const char* gameName);
+
     bool* getDisplayArray();
+    void clearDisplay();
 };
 
 #endif
